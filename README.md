@@ -1,10 +1,14 @@
 # Auricore
 
-Photo-based item identification, market-price research, and borrower/lender application flows built with Next.js, TypeScript, and Firebase.
+**Identify luxury goods and understand their market value, starting with a photo.**
+
+Auricore helps a user answer “What is this item, and what is it worth?” The web application accepts a photo or manual description, identifies the product, finds comparable listings, and presents market-price research. The broader product connects that valuation workflow to inventory and borrower/lender application intake.
+
+I contributed to the web and mobile applications and built product-data infrastructure behind the catalog. This repository contains the Next.js, TypeScript and Firebase web application. The source implements the workflows described here; it does not establish a guarantee of appraisal accuracy or a live lending service.
 
 This is a public source snapshot of an existing application. It preserves application source while excluding the original Git history, service-account credentials, local IDE files, and deployment configuration. It has not been deployed or verified against live services as part of this preparation.
 
-[Mobile application](https://github.com/Jaiashar/auricore-mobile) · [Supporting services](https://github.com/Jaiashar/auricore-services)
+[Mobile application](https://github.com/Jaiashar/auricore-mobile) · [Product ingestion](https://github.com/Jaiashar/luxury-product-ingestion) · [Product canonicalization](https://github.com/Jaiashar/product-canonicalization) · [Supporting services](https://github.com/Jaiashar/auricore-services)
 
 ## Explore the implementation
 
