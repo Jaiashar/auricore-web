@@ -4,7 +4,7 @@
 
 Auricore helps a user answer “What is this item, and what is it worth?” The web application accepts a photo or manual description, identifies the product, finds comparable listings, and presents market-price research. The broader product connects that valuation workflow to inventory and borrower/lender application intake.
 
-I contributed across the web and mobile applications and built product-data infrastructure behind the catalog. This repository contains the web experience, built with **Next.js, TypeScript and Firebase**.
+I cofounded Auricore and built web and mobile product experiences, along with Python pipelines for product ingestion and catalog matching. This repository contains the web experience, built with **Next.js, TypeScript and Firebase**.
 
 **Historical UI and architecture reference. Backend integrations are disabled in this portfolio copy.** All `/api` requests return HTTP 503. Original server implementations are preserved as non-executable text in [historical-api](historical-api/README.md). The independent review found missing authentication and ownership checks in those implementations.
 
