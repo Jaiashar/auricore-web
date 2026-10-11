@@ -15,3 +15,7 @@ Recorded contributors (commit counts, not a measure of total project ownership):
 ## Publication changes
 
 Removed credential files, private environment files, local tooling, generated dependencies, and old deployment configuration. Added public setup documentation and empty environment examples. Mobile provider credentials were replaced with an authenticated gateway interface. Server configuration uses developer-supplied credentials. Existing third-party notices and asset rights remain applicable; no new blanket license is granted.
+
+## Independent review follow-up, October 11, 2026
+
+Archived the ten original API handlers as `.ts.txt` source under `historical-api/`, outside executable routing. Replaced the API surface with a dependency-free HTTP 503 catch-all for all supported methods. This contains missing authorization checks without representing them as repaired production business logic. Added offline regression checks and updated Next.js and its ESLint configuration to 15.5.27. Direct client Firebase operations remain historical source and require separate security design before reuse. Mobile and service snapshots are now private.
