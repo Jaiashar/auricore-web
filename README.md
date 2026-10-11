@@ -4,13 +4,22 @@
 
 Auricore helps a user answer “What is this item, and what is it worth?” The web application accepts a photo or manual description, identifies the product, finds comparable listings, and presents market-price research. The broader product connects that valuation workflow to inventory and borrower/lender application intake.
 
-I contributed to the web and mobile applications and built product-data infrastructure behind the catalog. This repository contains the Next.js, TypeScript and Firebase web application. The source implements the workflows described here; it does not establish a guarantee of appraisal accuracy or a live lending service.
+I contributed across the web and mobile applications and built product-data infrastructure behind the catalog. This repository contains the web experience, built with **Next.js, TypeScript and Firebase**.
+
+## The user journey
+
+1. **Describe an item.** Upload a photo or enter its details manually.
+2. **Identify the product.** Review and refine the application's proposed item match.
+3. **Research its value.** Gather comparable listings and display pricing research with progress and results views.
+4. **Continue into the marketplace workflow.** The broader application includes borrower and lender intake backed by Firebase.
+
+The engineering work connects image handling, model-assisted identification, external product search, and persistent application state. The repository shows those implementations; valuation accuracy and a live lending service are not established by this source snapshot.
 
 This is a public source snapshot of an existing application. It preserves application source while excluding the original Git history, service-account credentials, local IDE files, and deployment configuration. It has not been deployed or verified against live services as part of this preparation.
 
 [Mobile application](https://github.com/Jaiashar/auricore-mobile) · [Product ingestion](https://github.com/Jaiashar/luxury-product-ingestion) · [Product canonicalization](https://github.com/Jaiashar/product-canonicalization) · [Supporting services](https://github.com/Jaiashar/auricore-services)
 
-## Explore the implementation
+## Code guide
 
 | Flow | Source |
 | --- | --- |
@@ -34,7 +43,7 @@ flowchart LR
 
 The implementation includes image processing with Sharp, model calls through Anthropic and OpenAI integrations, search through SerpAPI, Firebase persistence, and email integration. These integrations require configuration and may incur usage charges when invoked.
 
-## Local setup
+## Run locally
 
 ```sh
 npm ci
