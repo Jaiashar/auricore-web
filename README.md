@@ -19,6 +19,29 @@ This is a public source snapshot of an existing application. It preserves applic
 
 [Mobile application](https://github.com/Jaiashar/auricore-mobile) · [Product ingestion](https://github.com/Jaiashar/luxury-product-ingestion) · [Product canonicalization](https://github.com/Jaiashar/product-canonicalization) · [Supporting services](https://github.com/Jaiashar/auricore-services)
 
+## Request and persistence boundaries
+
+The Next.js application combines browser screens with server route handlers. Item identification and pricing research are separate stages: identification proposes what the item is, while pricing gathers evidence about its value. Firebase stores application and per-item pricing state so the interface can present progress and results.
+
+```mermaid
+flowchart TD
+    Browser[Next.js browser screens] --> Identify[Item-identification route]
+    Identify --> Images[Image preparation with Sharp]
+    Identify --> Models[Model-assisted identification]
+    Browser --> Pricing[Pricing route]
+    Pricing --> Research[Pricing service and external search]
+    Pricing --> State[Firestore application record]
+    State --> Progress[Progress and results components]
+```
+
+The pricing route accepts identifiers such as `applicationId` and `itemId`, along with the selected item and pricing options. Its persisted state includes per-item status, stage, progress, messages, timestamps, and errors. That is more informative than a single loading flag when different items or external calls take different amounts of time.
+
+### Handling uncertain and slow provider results
+
+The identification route contains retries and several attempts to recover structured JSON from model text. Those fallbacks are implementation behavior, not a guarantee that a repaired response is correct. Pricing code separately defines timeouts and stale-processing checks, and removes undefined values before Firestore writes. Read [identify-item](app/api/identify-item/route.ts) and [search-pricing](app/api/search-pricing/route.ts) together to see how model output, persistence, and UI state interact.
+
+Background processing in this historical route should not be assumed to provide durable queue semantics. Deployment lifetime, provider failures, and interrupted writes need testing in the intended hosting environment.
+
 ## Code guide
 
 | Flow | Source |
